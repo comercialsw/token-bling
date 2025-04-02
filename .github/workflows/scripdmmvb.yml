@@ -26,6 +26,6 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'actions@github.com'
-          git add tokens.json
+          git add tokensmmvb.json
           git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
           git push
