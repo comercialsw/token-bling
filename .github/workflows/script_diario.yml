@@ -2,7 +2,7 @@ name: Atualizar Tokens Bling
 
 on:
   schedule:
-    - cron: '0 11,14,17,20 * * *'  # Executa às 08h, 11h, 14h, 17h horário de Brasília (UTC+3)
+    - cron: '0 11,14,17,20 * * *'  # Executa às 08h, 11h, 14h, 17h (Brasília UTC-3)
   workflow_dispatch:
 
 jobs:
@@ -33,4 +33,3 @@ jobs:
           git add tokens.json
           git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
           git push
-
