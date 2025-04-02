@@ -1,4 +1,4 @@
-name: Atualizar Tokens Bling
+name: Atualizar Tokens Bling 2
 
 on:
   schedule:
@@ -20,7 +20,7 @@ jobs:
         run: pip install -r requirements.txt || echo "Sem requirements.txt"
 
       - name: Executar script Python
-        run: python api-bling-sw.py
+        run: python script.py
 
       - name: Salvar Tokens no GitHub
         run: |
