@@ -24,7 +24,7 @@ jobs:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           AUTHORIZATION_CODE: ${{ secrets.AUTHORIZATION_CODE }}
-        run: python script.py
+        run: python api-bling-sw.py
 
       - name: Salvar Tokens no GitHub
         run: |
