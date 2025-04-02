@@ -41,12 +41,15 @@ def atualiza_tokens():
     client_secret = os.getenv("CLIENT_SECRET")
     authorization_code = os.getenv("AUTHORIZATION_CODE")
 
-    config_path = "tokens/"  # Caminho atualizado
+    # Define o caminho do arquivo em que serão salvos os tokens
+    tokens_dir = "tokens"
+    config_path = os.path.join(tokens_dir, "tokens.json")
 
-    if not os.path.exists("tokens"):
-        os.makedirs("tokens")  # Garante que a pasta exista
+    # Garante que o diretório exista
+    if not os.path.exists(tokens_dir):
+        os.makedirs(tokens_dir)
 
-    # Verifica se arquivo existe e está preenchido corretamente
+    # Verifica se o arquivo JSON existe
     if not os.path.isfile(config_path) or os.path.getsize(config_path) == 0:
         print("Arquivo de tokens não encontrado ou vazio. Gerando tokens iniciais.")
         new_refresh_token, access_token = troca_code_por_tokens(client_id, client_secret, authorization_code)
