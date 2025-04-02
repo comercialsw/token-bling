@@ -27,13 +27,13 @@ jobs:
         run: python api-bling-sw.py
 
       - name: Salvar Tokens no GitHub
-  env:
-    GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  run: |
-    git config user.name 'github-actions[bot]'
-    git config user.email 'actions@github.com'
-    git add tokens.json
-    git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
-    git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} HEAD:main
+        env:
+            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'actions@github.com'
+          git add tokens.json
+          git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
+          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }} HEAD:main
 
           
