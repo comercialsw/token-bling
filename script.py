@@ -7,7 +7,7 @@ import os
 # Defina seus dados diretamente aqui:
 CLIENT_ID = "7ded8c4961025039acfd743f5674651aebafd95b"
 CLIENT_SECRET = "a35582aacfe993dc3dda23f14aaa756f45f3c3d48228e7929009bfb903e6"
-AUTHORIZATION_CODE = "d1719748b5c8a4cf28ff1e074a939196ef0c0f9b"
+AUTHORIZATION_CODE = "cf1c4a37af721c9bf94d0e91f0cae92f2aa775cf"
 
 TOKEN_FILE = "token.json"  # Salvará o token na raiz do repositório GitHub
 
