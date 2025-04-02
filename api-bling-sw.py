@@ -41,7 +41,7 @@ def atualiza_tokens():
     client_secret = os.getenv("CLIENT_SECRET")
     authorization_code = os.getenv("AUTHORIZATION_CODE")
 
-     config_path = "tokens/tokens.json"  # Caminho atualizado
+    config_path = "tokens/tokens.json"  # Caminho atualizado
 
     if not os.path.exists("tokens"):
         os.makedirs("tokens")  # Garante que a pasta exista
