@@ -2,7 +2,7 @@ name: Atualizar Tokens Bling
 
 on:
   schedule:
-    - cron: '0 11,14,17,20 * * *'  # Executa às 08h, 11h, 14h, 17h (Brasília UTC-3)
+    - cron: '0 11,14,17,20 * * *'  # Executa nos horários definidos (UTC)
   workflow_dispatch:
 
 jobs:
@@ -10,27 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Faz checkout do repositório
       - uses: actions/checkout@v4
 
-      # Configura o Python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      # Instala dependências (caso utilize um requirements.txt)
       - name: Instalar dependências
         run: pip install -r requirements.txt
 
-      # Executa o script Python
       - name: Executar script Python
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          AUTHORIZATION_CODE: ${{ secrets.AUTHORIZATION_CODE }}
         run: python api-bling-sw.py
 
-      # Salva tokens no GitHub (commita a pasta tokens/)
       - name: Salvar Tokens no GitHub
         run: |
           git config user.name 'github-actions[bot]'
