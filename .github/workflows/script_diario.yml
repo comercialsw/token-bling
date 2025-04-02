@@ -30,7 +30,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'actions@github.com'
-          git add tokens/tokens.json
+          git add tokens/
           git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
           git push
                 
