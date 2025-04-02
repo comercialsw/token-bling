@@ -39,19 +39,23 @@ def refresh_tokens(client_id, client_secret, refresh_token):
 def atualiza_tokens():
     client_id = os.getenv("CLIENT_ID")
     client_secret = os.getenv("CLIENT_SECRET")
-    authorization_code = os.getenv("AUTHORIZATION_CODE")  # Usado apenas na primeira execução
+    authorization_code = os.getenv("AUTHORIZATION_CODE")
 
     config_path = "tokens.json"
 
-    # Checa se arquivo de tokens já existe
-    if not os.path.isfile(config_path):
-        print("Arquivo de tokens não encontrado. Gerando tokens iniciais.")
+    # Verifica se arquivo existe e está preenchido corretamente
+    if not os.path.isfile(config_path) or os.path.getsize(config_path) == 0:
+        print("Arquivo de tokens não encontrado ou vazio. Gerando tokens iniciais.")
         new_refresh_token, access_token = troca_code_por_tokens(client_id, client_secret, authorization_code)
     else:
-        with open(config_path, "r") as f:
-            config = json.load(f)
-        refresh_token_value = config.get("refresh_token")
-        new_refresh_token, access_token = refresh_tokens(client_id, client_secret, refresh_token_value)
+        try:
+            with open(config_path, "r") as f:
+                config = json.load(f)
+            refresh_token_value = config.get("refresh_token")
+            new_refresh_token, access_token = refresh_tokens(client_id, client_secret, refresh_token_value)
+        except json.JSONDecodeError:
+            print("Arquivo tokens.json corrompido ou inválido. Gerando tokens iniciais novamente.")
+            new_refresh_token, access_token = troca_code_por_tokens(client_id, client_secret, authorization_code)
 
     if new_refresh_token and access_token:
         token_data = {
@@ -67,4 +71,3 @@ def atualiza_tokens():
 
 if __name__ == "__main__":
     atualiza_tokens()
-
