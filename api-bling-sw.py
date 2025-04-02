@@ -7,7 +7,7 @@ import os
 # Defina seus dados diretamente aqui:
 CLIENT_ID = "7ded8c4961025039acfd743f5674651aebafd95b"
 CLIENT_SECRET = "a35582aacfe993dc3dda23f14aaa756f45f3c3d48228e7929009bfb903e6"
-AUTHORIZATION_CODE = "f0fe91bf668d1943d2978ae257fb6d6117b1a87f"
+AUTHORIZATION_CODE = "aca8ee02b3f04f3e3f0e7766f8d19a8b34d0d945"
 
 def troca_code_por_tokens(client_id, client_secret, authorization_code):
     """
