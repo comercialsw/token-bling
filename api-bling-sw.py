@@ -41,7 +41,7 @@ def atualiza_tokens():
     client_secret = os.getenv("CLIENT_SECRET")
     authorization_code = os.getenv("AUTHORIZATION_CODE")
 
-    config_path = "config_path = "tokens/token.json"
+    config_path = "tokens/"
 
     # Verifica se arquivo existe e está preenchido corretamente
     if not os.path.isfile(config_path) or os.path.getsize(config_path) == 0:
