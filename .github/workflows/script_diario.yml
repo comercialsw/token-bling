@@ -10,15 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Faz checkout do repositório
       - uses: actions/checkout@v4
 
+      # Configura o Python
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      # Instala dependências (caso utilize um requirements.txt)
       - name: Instalar dependências
         run: pip install -r requirements.txt
 
+      # Executa o script Python
       - name: Executar script Python
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
@@ -26,11 +30,11 @@ jobs:
           AUTHORIZATION_CODE: ${{ secrets.AUTHORIZATION_CODE }}
         run: python api-bling-sw.py
 
+      # Salva tokens no GitHub (commita a pasta tokens/)
       - name: Salvar Tokens no GitHub
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'actions@github.com'
           git add tokens/tokens.json
-          git commit -m "Tokens atualizados em $(date)" || echo "Sem alterações"
+          git commit -m "Tokens atualizados em $(date)" || echo "Nenhuma alteração"
           git push
-                
