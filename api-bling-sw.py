@@ -54,8 +54,8 @@ def atualiza_tokens():
     client_id = CLIENT_ID
     client_secret = CLIENT_SECRET
 
-    tokens_dir = "tokens"
-    config_path = os.path.join(tokens_dir, "tokens.json")
+    tokens_dir = "token"
+    config_path = os.path.join(tokens_dir, "token.json")
 
     # Garante que a pasta "tokens" exista
     if not os.path.exists(tokens_dir):
