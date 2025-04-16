@@ -2,7 +2,7 @@ name: Atualizar Tokens Bling 2
 
 on:
   schedule:
-    - cron: '0 8,10,14,17,20,23 * * *'  # Executa 4x por dia (UTC)
+    - cron: '0 8,11,14,17,20,23 * * *'  # Executa 4x por dia (UTC)
   workflow_dispatch:
 
 jobs:
