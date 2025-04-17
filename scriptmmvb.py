@@ -7,7 +7,7 @@ import os
 # Defina seus dados diretamente aqui:
 CLIENT_ID = "f449c93d4d4d8fcd9f5b819dbae2120414e0a139"
 CLIENT_SECRET = "e124a3c2edf13a854ba31d935767a60e0ad80eb07b79ea183647c6e70f3a"
-AUTHORIZATION_CODE = "1d66c995ba6496b6ec17444b504390334ed6318f"
+AUTHORIZATION_CODE = "87a764b032dfbe693c84b14e89e7d12c86a58382"
 
 TOKEN_FILE = "tokensmmvb.json"  # Salvará o token na raiz do repositório GitHub
 
